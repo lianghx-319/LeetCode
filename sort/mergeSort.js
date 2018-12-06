@@ -26,4 +26,5 @@ function mergeSort(nums) {
     return merge(mergeSort(left), mergeSort(right))
 }
 
-console.log(mergeSort([23, 423, 123, 5234, 25, 232, 635, 723, 412, 745]))
+module.exports = mergeSort;
+module.exports.default = module.exports;

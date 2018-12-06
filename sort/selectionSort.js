@@ -1,19 +1,18 @@
-function selectionSort(nums) {
-    let minIndex, temp;
-    for (let i = 0; i < nums.length - 1; i++) {
-        minIndex = i;
+const { swap } = require("../utils");
+
+function selection(nums) {
+    nums = nums.concat([]);
+    for (let i = 0; i < nums.length; i++) {
+        let minIndex = i;
         for (let j = i + 1; j < nums.length; j++) {
             if (nums[j] < nums[minIndex]) {
                 minIndex = j;
             }
         }
-
-        temp = nums[i];
-        nums[i] = nums[minIndex];
-        nums[minIndex] = temp;
+        swap(nums, j, minIndex)
     }
-
     return nums;
 }
 
-console.log(selectionSort([23, 423, 123, 5234, 25, 232, 635, 723, 412, 745]))
+module.exports = selection;
+module.exports.default = module.exports;
