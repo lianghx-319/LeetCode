@@ -12,19 +12,18 @@ package leetcode
 
 // @lc code=start
 func maxArea(height []int) int {
-	w, max := 0, 0
-	left, right := 0, len(height)-1
+	temp, max, left, right := 0, 0, 0, len(height)-1
 	for left < right {
-		if hl, hr, dist := height[left], height[right], right-left; hl > hr {
-			w = dist * hr
+		if heightL, heightR, dist := height[left], height[right], right-left; heightL > heightR {
+			temp = dist * heightR
 			right--
 		} else {
-			w = dist * hl
+			temp = dist * heightL
 			left++
 		}
 
-		if w > max {
-			max = w
+		if temp > max {
+			max = temp
 		}
 	}
 	return max
